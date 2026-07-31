@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>単語ノート · 日文單字 — JLPT N5–N1 日文背單字 App</title>
+<meta name="description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta name="theme-color" content="#14213d" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%2314213d'/%3E%3Ctext%20x='50'%20y='73'%20font-size='60'%20text-anchor='middle'%20fill='white'%20font-family='sans-serif'%20font-weight='bold'%3E%E5%8D%98%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%2314213d'/%3E%3Ctext%20x='50'%20y='73'%20font-size='60'%20text-anchor='middle'%20fill='white'%20font-family='sans-serif'%20font-weight='bold'%3E%E5%8D%98%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="単語ノート · 日文單字 — JLPT N5–N1 背單字 App">
+<meta property="og:description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta property="og:url" content="https://qqjasonchen.github.io/tango-landing/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://qqjasonchen.github.io/tango-landing/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="単語ノート · 日文單字">
+<meta name="twitter:description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta name="twitter:image" content="https://qqjasonchen.github.io/tango-landing/img/og-cover.png">
+<style>
+  :root{
+    --ink:#14213d; --ground:#eef1f7; --surface:#ffffff; --surface-2:#f6f8fc;
+    --text:#1f2733; --muted:#65708a; --line:#e3e9f3;
+    --shu:#e0402b; --shu-soft:#fbe9e5; --gold:#a9781f;
+    --hero-a:#0a1628; --hero-b:#14213d; --hero-c:#1f4178;
+    --on-hero:#eaf1ff; --on-hero-dim:#9fb6df;
+    --pos-noun:#1f4178; --pos-verb:#d43a25; --pos-adj:#b3760f; --pos-part:#7c8698; --pos-aux:#2a8767;
+    --n5:#2f9e44; --n4:#74a800; --n3:#e8930c; --n2:#e0601a; --n1:#c22a2a;
+    --shadow:0 10px 34px rgba(20,33,61,.12);
+    --shadow-sm:0 3px 12px rgba(20,33,61,.08);
+    --radius:22px; --radius-lg:26px;
+    --maxw:660px;
+    --serif:"Hiragino Mincho ProN","Songti TC","Noto Serif TC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#e9eefb; --ground:#0a1120; --surface:#111b30; --surface-2:#0d1626;
+      --text:#dae2f0; --muted:#93a1ba; --line:#213047;
+      --shu:#ff6a52; --shu-soft:#2c1a18; --gold:#d6ac5c;
+      --on-hero:#eaf1ff; --on-hero-dim:#9fb6df;
+      --pos-noun:#7ba6ff; --pos-verb:#ff7a64; --pos-adj:#e4b24f; --pos-part:#8894a8; --pos-aux:#4fc39a;
+      --n5:#51cf66; --n4:#a9e34b; --n3:#ffc078; --n2:#ff922b; --n1:#ff6b6b;
+      --shadow:0 12px 40px rgba(0,0,0,.5); --shadow-sm:0 4px 16px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{
+    --ink:#14213d; --ground:#eef1f7; --surface:#ffffff; --surface-2:#f6f8fc;
+    --text:#1f2733; --muted:#65708a; --line:#e3e9f3;
+    --shu:#e0402b; --shu-soft:#fbe9e5; --gold:#a9781f;
+    --on-hero:#eaf1ff; --on-hero-dim:#9fb6df;
+    --pos-noun:#1f4178; --pos-verb:#d43a25; --pos-adj:#b3760f; --pos-part:#7c8698; --pos-aux:#2a8767;
+    --n5:#2f9e44; --n4:#74a800; --n3:#e8930c; --n2:#e0601a; --n1:#c22a2a;
+    --shadow:0 10px 34px rgba(20,33,61,.12); --shadow-sm:0 3px 12px rgba(20,33,61,.08);
+  }
+  :root[data-theme="dark"]{
+    --ink:#e9eefb; --ground:#0a1120; --surface:#111b30; --surface-2:#0d1626;
+    --text:#dae2f0; --muted:#93a1ba; --line:#213047;
+    --shu:#ff6a52; --shu-soft:#2c1a18; --gold:#d6ac5c;
+    --on-hero:#eaf1ff; --on-hero-dim:#9fb6df;
+    --pos-noun:#7ba6ff; --pos-verb:#ff7a64; --pos-adj:#e4b24f; --pos-part:#8894a8; --pos-aux:#4fc39a;
+    --n5:#51cf66; --n4:#a9e34b; --n3:#ffc078; --n2:#ff922b; --n1:#ff6b6b;
+    --shadow:0 12px 40px rgba(0,0,0,.5); --shadow-sm:0 4px 16px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ground);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+  section{padding:44px 0}
+  h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.25;letter-spacing:-.01em}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--shu)}
+  .lead{color:var(--muted);font-size:16px}
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);font-size:18px;letter-spacing:-.02em}
+  .brand .seal{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--hero-b),var(--hero-c));color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;box-shadow:var(--shadow-sm)}
+  .brand small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-top:1px}
+  .topbar .ghost{font-size:14px;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+  .topbar .ghost:hover{color:var(--ink);background:var(--surface-2)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--hero-a),var(--hero-b) 52%,var(--hero-c));border-radius:var(--radius-lg);padding:36px 26px 30px;box-shadow:var(--shadow);color:var(--on-hero)}
+  .hero .seigaiha{position:absolute;inset:0;opacity:.16;pointer-events:none;
+    background-image:
+      radial-gradient(circle at 50% 100%, transparent 34%, #7ea6e6 35%, #7ea6e6 40%, transparent 41%),
+      radial-gradient(circle at 50% 100%, transparent 22%, #7ea6e6 23%, #7ea6e6 27%, transparent 28%),
+      radial-gradient(circle at 50% 100%, transparent 10%, #7ea6e6 11%, #7ea6e6 15%, transparent 16%);
+    background-size:56px 28px;background-position:0 0;}
+  .hero>*{position:relative}
+  .hero .eyebrow{color:#ff8f7a}
+  .hero h1{color:#fff;font-size:33px;font-weight:800;margin:12px 0 12px;letter-spacing:-.02em}
+  .hero h1 .u{background:linear-gradient(transparent 66%, rgba(224,64,43,.55) 66%)}
+  .hero p.h-sub{color:var(--on-hero-dim);font-size:15.5px;max-width:44ch}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .btn{appearance:none;border:0;cursor:pointer;font-family:inherit;font-weight:800;border-radius:14px;padding:15px 20px;font-size:15.5px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:transform .1s ease,box-shadow .2s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--shu);color:#fff;box-shadow:0 8px 20px rgba(224,64,43,.4)}
+  .btn-primary:hover{transform:translateY(-1px)}
+  .btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.22)}
+  .btn-ghost:hover{background:rgba(255,255,255,.16)}
+  .btn .tiny{font-weight:600;opacity:.8;font-size:12px}
+
+  /* annotated card in hero */
+  .anno{margin-top:26px;background:var(--surface);border-radius:18px;padding:20px 18px 18px;box-shadow:0 14px 40px rgba(0,0,0,.34);color:var(--text)}
+  .anno .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .anno .head .tag{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+  .lvl{font-size:11px;font-weight:800;color:#fff;padding:3px 9px;border-radius:99px;letter-spacing:.04em}
+  .lvl.n3{background:var(--n3)}
+  .sent{display:flex;flex-wrap:wrap;align-items:flex-end;gap:3px 2px;font-size:23px;font-weight:700;color:var(--ink);line-height:1.9;margin-bottom:6px}
+  .tok{position:relative;padding:1px 3px;border-radius:5px;cursor:default}
+  .tok .pos{display:block;font-size:9.5px;font-weight:800;letter-spacing:.02em;text-align:center;line-height:1;margin-bottom:2px}
+  .tok.noun{color:var(--pos-noun)} .tok.noun .pos{color:var(--pos-noun)}
+  .tok.verb{color:var(--pos-verb)} .tok.verb .pos{color:var(--pos-verb)}
+  .tok.adj{color:var(--pos-adj)} .tok.adj .pos{color:var(--pos-adj)}
+  .tok.part{color:var(--pos-part)} .tok.part .pos{color:var(--pos-part)}
+  .tok.aux{color:var(--pos-aux)} .tok.aux .pos{color:var(--pos-aux)}
+  .anno .zh{color:var(--muted);font-size:14px;margin:8px 0 14px;padding-left:11px;border-left:3px solid var(--shu)}
+  .anno .pts{display:grid;gap:7px}
+  .anno .pt{display:flex;gap:9px;font-size:13.5px;color:var(--text);background:var(--surface-2);border-radius:10px;padding:9px 12px}
+  .anno .pt b{color:var(--shu);font-weight:800;flex-shrink:0}
+  .anno .redpen{margin-top:12px;font-family:var(--serif);color:var(--shu);font-size:13px;transform:rotate(-2deg);opacity:.9;text-align:right}
+
+  /* ---------- stat strip ---------- */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);margin-top:-6px}
+  .stat{background:var(--surface);padding:18px 14px;text-align:center}
+  .stat .num{font-size:27px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .stat .lbl{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+  .stat .num .unit{font-size:14px;font-weight:700;color:var(--muted);margin-left:2px}
+
+  /* ---------- generic section head ---------- */
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{font-size:25px;font-weight:800;margin-top:8px}
+  .sec-head p{margin-top:8px}
+
+  /* ---------- differentiator ---------- */
+  .why{background:var(--surface);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+  .why .legend{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px}
+  .why .chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:99px;background:var(--surface-2)}
+  .why .chip.noun{color:var(--pos-noun)} .why .chip.verb{color:var(--pos-verb)}
+  .why .chip.adj{color:var(--pos-adj)} .why .chip.part{color:var(--pos-part)} .why .chip.aux{color:var(--pos-aux)}
+  .why .chip i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .why .chip.noun i{background:var(--pos-noun)} .why .chip.verb i{background:var(--pos-verb)}
+  .why .chip.adj i{background:var(--pos-adj)} .why .chip.part i{background:var(--pos-part)} .why .chip.aux i{background:var(--pos-aux)}
+  .struct{font-size:14px;color:var(--muted);background:var(--surface-2);border-radius:10px;padding:10px 13px;margin-bottom:6px}
+  .struct b{color:var(--ink)}
+
+  /* ---------- JLPT ladder ---------- */
+  .ladder{display:grid;gap:9px}
+  .rung{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:12px;background:var(--surface);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-sm)}
+  .rung .badge{font-weight:800;color:#fff;text-align:center;border-radius:9px;padding:7px 0;font-size:14px;letter-spacing:.03em}
+  .rung.l5 .badge{background:var(--n5)} .rung.l4 .badge{background:var(--n4)}
+  .rung.l3 .badge{background:var(--n3)} .rung.l2 .badge{background:var(--n2)} .rung.l1 .badge{background:var(--n1)}
+  .rung .bar{height:9px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+  .rung .bar>span{display:block;height:100%;border-radius:99px}
+  .rung.l5 .bar>span{background:var(--n5)} .rung.l4 .bar>span{background:var(--n4)}
+  .rung.l3 .bar>span{background:var(--n3)} .rung.l2 .bar>span{background:var(--n2)} .rung.l1 .bar>span{background:var(--n1)}
+  .rung .cnt{font-size:14px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+  .rung .cnt small{color:var(--muted);font-weight:600}
+
+  /* ---------- features ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .feat{background:var(--surface);border-radius:16px;padding:18px 16px;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:transform .12s ease,box-shadow .2s ease}
+  .feat:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .feat .ic{width:38px;height:38px;border-radius:10px;background:var(--shu-soft);color:var(--shu);display:grid;place-items:center;font-size:19px;margin-bottom:10px}
+  .feat h3{font-size:15.5px;font-weight:800;margin-bottom:4px}
+  .feat p{font-size:13px;color:var(--muted);line-height:1.55}
+  .modes{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .mode{font-size:13.5px;font-weight:700;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:9px 15px;box-shadow:var(--shadow-sm)}
+  .mode span{color:var(--shu)}
+
+  /* ---------- screenshots ---------- */
+  .shots{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px}
+  .shots::-webkit-scrollbar{height:6px}
+  .shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+  .shot{flex:0 0 auto;width:228px;scroll-snap-align:start;margin:0}
+  .shot img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:var(--shadow)}
+  .shot figcaption{font-size:12.5px;font-weight:700;color:var(--muted);text-align:center;margin-top:10px;letter-spacing:.01em}
+
+  /* ---------- power features ---------- */
+  .power{display:grid;gap:14px}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:var(--shadow-sm)}
+  .pcard.ai{border-top:4px solid var(--shu)}
+  .pcard.spd{border-top:4px solid var(--pos-aux)}
+  .pc-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .pc-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
+  .pcard.ai .pc-ic{background:var(--shu-soft)}
+  .pcard.spd .pc-ic{background:rgba(42,135,103,.14)}
+  .pc-top h3{font-size:17.5px;font-weight:800}
+  .pcard p{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .mini-sent{margin-top:14px;background:var(--surface-2);border-radius:12px;padding:12px 14px;font-size:19px;font-weight:700;display:flex;flex-wrap:wrap;gap:1px 2px;line-height:1.7}
+  .spd-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .spd-pills span{font-size:14px;font-weight:800;padding:7px 13px;border-radius:99px;background:var(--surface-2);color:var(--muted);font-variant-numeric:tabular-nums}
+  .spd-pills span.on{background:var(--pos-aux);color:#fff}
+  @media(min-width:560px){.power{grid-template-columns:1fr 1fr}}
+
+  /* ---------- trust ---------- */
+  .trust{background:linear-gradient(150deg,var(--hero-a),var(--hero-b) 55%,var(--hero-c));border-radius:var(--radius);padding:26px 22px;color:var(--on-hero);text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .trust .seigaiha{position:absolute;inset:0;opacity:.12;pointer-events:none;
+    background-image:
+      radial-gradient(circle at 50% 100%, transparent 34%, #7ea6e6 35%, #7ea6e6 40%, transparent 41%),
+      radial-gradient(circle at 50% 100%, transparent 22%, #7ea6e6 23%, #7ea6e6 27%, transparent 28%),
+      radial-gradient(circle at 50% 100%, transparent 10%, #7ea6e6 11%, #7ea6e6 15%, transparent 16%);
+    background-size:56px 28px}
+  .trust>*{position:relative}
+  .trust h2{color:#fff;font-size:22px;margin-bottom:14px}
+  .trust .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+  .trust .b{font-size:13px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:99px;color:#fff}
+
+  /* ---------- final cta ---------- */
+  .final{text-align:center;padding-top:8px}
+  .final h2{font-size:26px;margin-bottom:6px}
+  .final p{margin-bottom:20px}
+  .final .cta-row{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
+  .final .btn{justify-content:center;width:100%}
+  .final .btn-primary{background:var(--shu)}
+  .final .btn-dark{background:var(--ink);color:var(--surface)}
+  .final .note{font-size:12px;color:var(--muted);margin-top:14px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 40px;text-align:center}
+  footer .flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-bottom:12px}
+  footer a{font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--shu)}
+  footer .cr{font-size:12px;color:var(--muted)}
+  footer .cr .jp{font-family:var(--serif);color:var(--ink);font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn,.feat{transition:none}}
+
+  @media(min-width:560px){
+    .stats{grid-template-columns:repeat(4,1fr)}
+    .hero h1{font-size:38px}
+    .final .cta-row{flex-direction:row}
+  }
+  :focus-visible{outline:3px solid var(--shu);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="seal">単</div>
+      <div>単語ノート<small>日文單字 · JLPT N5–N1</small></div>
+    </div>
+    <a class="ghost" href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">網頁版 →</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero reveal">
+    <div class="seigaiha"></div>
+    <div class="eyebrow">為中文母語者打造</div>
+    <h1>看得懂漢字，<br>也<span class="u">唸得出聲</span>。</h1>
+    <p class="h-sub">10,000 個日文單字，從 N5 到 N1。每一句都能調語速發音，還能一鍵 AI 文法解析——像老師在你的筆記本上，一句一句批改。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">免費開始學 →</a>
+      <a class="btn btn-ghost" href="https://apps.apple.com/tw/app/id6784779535" target="_blank" rel="noopener">App Store<span class="tiny">免費下載</span></a>
+    </div>
+
+    <div class="anno">
+      <div class="head">
+        <span class="tag">🔍 AI 文法解析</span>
+        <span class="lvl n3">N3</span>
+      </div>
+      <div class="sent">
+        <span class="tok adj"><span class="pos">形容詞</span>新しい</span>
+        <span class="tok noun"><span class="pos">名詞</span>衣類</span>
+        <span class="tok part"><span class="pos">助詞</span>を</span>
+        <span class="tok verb"><span class="pos">動詞</span>買いました</span>
+        <span class="tok part"><span class="pos"> </span>。</span>
+      </div>
+      <div class="zh">我買了新的衣物。</div>
+      <div class="pts">
+        <div class="pt"><b>①</b><span>他動詞「買う」＝買（衣類を買う）</span></div>
+        <div class="pt"><b>②</b><span>形容詞連體修飾：新しい＋衣類（新衣物）</span></div>
+      </div>
+      <div class="redpen">〜 每一句都批改過 〜</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><div class="num">10,000</div><div class="lbl">日文單字</div></div>
+    <div class="stat"><div class="num">49,105</div><div class="lbl">句 AI 文法解析</div></div>
+    <div class="stat"><div class="num">5<span class="unit">種</span></div><div class="lbl">學習模式</div></div>
+    <div class="stat"><div class="num">24<span class="unit">個</span></div><div class="lbl">主題分類</div></div>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">🔍 AI 文法解析</div>
+    <h2>別的 App 給你單字，<br>這裡連文法都 AI 拆好。</h2>
+    <p class="lead">市面上背單字 App 大多只給你「字＋翻譯」。単語ノート 每一句例句點一下「解析」，AI 立刻拆到詞性、句型骨架、關鍵文法點——近 50,000 句全部預先分析好，離線也能看，不用再翻文法書。</p>
+  </div>
+  <div class="why reveal">
+    <div class="legend">
+      <span class="chip noun"><i></i>名詞</span>
+      <span class="chip verb"><i></i>動詞</span>
+      <span class="chip adj"><i></i>形容詞</span>
+      <span class="chip part"><i></i>助詞</span>
+      <span class="chip aux"><i></i>助動詞</span>
+    </div>
+    <div class="sent">
+      <span class="tok noun"><span class="pos">名詞</span>季節</span>
+      <span class="tok part"><span class="pos">助詞</span>に</span>
+      <span class="tok verb"><span class="pos">動詞</span>合わせた</span>
+      <span class="tok noun"><span class="pos">名詞</span>衣類</span>
+      <span class="tok part"><span class="pos">助詞</span>を</span>
+      <span class="tok verb"><span class="pos">動詞</span>選びます</span>
+      <span class="tok part"><span class="pos"> </span>。</span>
+    </div>
+    <div class="zh" style="margin:6px 0 16px">我會選擇適合季節的衣物。</div>
+    <div class="struct"><b>句型骨架：</b>季節に合わせた衣類を＋選びます</div>
+    <div class="pts">
+      <div class="pt"><b>①</b><span>內含連體修飾：季節に合わせた＋衣類（適合季節的衣物）</span></div>
+      <div class="pt"><b>②</b><span>「〜に合わせる」＝配合〜（季節に合わせる）</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">別人沒有的兩件武器</div>
+    <h2>不只背起來，<br>更真的學得會。</h2>
+  </div>
+  <div class="power reveal">
+    <div class="pcard ai">
+      <div class="pc-top"><span class="pc-ic">🔍</span><h3>一鍵 AI 文法解析</h3></div>
+      <p>點一下「解析」，AI 立刻把整句拆給你看——詞性、逐詞拆解、句型骨架，還有一整段像老師講給你聽的「句型解說」：這個助詞為什麼用它、動詞怎麼變、哪裡最容易錯。近 50,000 句全部預先分析好，離線也能用。</p>
+      <div class="mini-sent">
+        <span class="tok noun">季節</span><span class="tok part">に</span><span class="tok verb">合わせた</span><span class="tok noun">衣類</span><span class="tok part">を</span><span class="tok verb">選ぶ</span>
+      </div>
+    </div>
+    <div class="pcard spd">
+      <div class="pc-top"><span class="pc-ic">🐢</span><h3>語速 0.7×–1.5× 自由調</h3></div>
+      <p>每一句都能調語速。聽不清就放慢到 0.7×，練熟了就加速到 1.5×——用耳朵把發音記進去。</p>
+      <div class="spd-pills"><span>0.7×</span><span>0.85×</span><span class="on">1×</span><span>1.25×</span><span>1.5×</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">循序漸進</div>
+    <h2>從 N5 一路到 N1</h2>
+    <p class="lead">10,000 個字全部由 AI 逐字重新校準難度，再經第二輪複審抓錯——不會再出現「明明很簡單卻被標成 N1」。初學者不被進階詞嚇到，考 N1 的人也有足夠深水區。</p>
+  </div>
+  <div class="ladder reveal">
+    <div class="rung l5"><div class="badge">N5</div><div class="bar"><span style="width:16%"></span></div><div class="cnt">633<small> 字</small></div></div>
+    <div class="rung l4"><div class="badge">N4</div><div class="bar"><span style="width:27%"></span></div><div class="cnt">1,059<small> 字</small></div></div>
+    <div class="rung l3"><div class="badge">N3</div><div class="bar"><span style="width:58%"></span></div><div class="cnt">2,225<small> 字</small></div></div>
+    <div class="rung l2"><div class="badge">N2</div><div class="bar"><span style="width:100%"></span></div><div class="cnt">3,852<small> 字</small></div></div>
+    <div class="rung l1"><div class="badge">N1</div><div class="bar"><span style="width:58%"></span></div><div class="cnt">2,231<small> 字</small></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">五種學習模式</div>
+    <h2>同一批字，<br>換五個角度記牢。</h2>
+  </div>
+  <div class="modes reveal">
+    <div class="mode">日 <span>→</span> 中</div>
+    <div class="mode">中 <span>→</span> 日</div>
+    <div class="mode">聽力</div>
+    <div class="mode">打字</div>
+    <div class="mode">造句</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+    <div class="feat reveal">
+      <div class="ic">🔊</div>
+      <h3>每句發音 · 語速可調</h3>
+      <p>近五萬句例句句句母語發音，還能 0.7×–1.5× 五段語速切換，聽不清就放慢多聽幾次。</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic">🔁</div>
+      <h3>間隔重複複習</h3>
+      <p>內建 SRS 演算法，自動排出今天最該複習的字，把時間花在快忘的字上。</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic">🔍</div>
+      <h3>怎麼查都查得到</h3>
+      <p>中文、漢字、假名、羅馬拼音都能搜；例句點一下就能查裡面的每個字。</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic">⭐</div>
+      <h3>自建弱點牌組</h3>
+      <p>不熟的字、喜歡的例句一鍵收藏，組成專屬你的複習牌組。</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic">🔍</div>
+      <h3>AI 文法解析</h3>
+      <p>一鍵拆解詞性、句型與文法點，例句不只會唸，還看得懂為什麼。離線可用。</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic">📴</div>
+      <h3>資料完全離線</h3>
+      <p>單字、例句、文法、複習全在手機裡，不需連網；發音為線上串流（每段僅 3KB）。</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">實際畫面</div>
+    <h2>打開就是這樣。</h2>
+    <p class="lead">左右滑動看 8 個真實畫面 →</p>
+  </div>
+  <div class="shots reveal">
+    <figure class="shot"><img src="img/screen_01home.png" alt="首頁：待複習卡片、學習方向、JLPT N5–N1 牌組" loading="lazy" width="500" height="895"><figcaption>首頁 · JLPT 牌組</figcaption></figure>
+    <figure class="shot"><img src="img/screen_02grammar.png" alt="AI 文法解析：逐詞拆解、句型結構、文法重點" loading="lazy" width="500" height="895"><figcaption>AI 文法解析</figcaption></figure>
+    <figure class="shot"><img src="img/screen_03card.png" alt="學習卡：例句、發音、連播、語速" loading="lazy" width="500" height="895"><figcaption>例句 · 發音 · 語速</figcaption></figure>
+    <figure class="shot"><img src="img/screen_04immersion.png" alt="沉浸模式：隱藏中文，只看日文" loading="lazy" width="500" height="895"><figcaption>隱藏中文沉浸</figcaption></figure>
+    <figure class="shot"><img src="img/screen_05search.png" alt="中文一搜字典查詢" loading="lazy" width="500" height="895"><figcaption>中文一搜字典</figcaption></figure>
+    <figure class="shot"><img src="img/screen_06cloze.png" alt="填空複習：把收藏句單字挖空" loading="lazy" width="500" height="895"><figcaption>填空複習</figcaption></figure>
+    <figure class="shot"><img src="img/screen_07export.png" alt="匯出收藏到 RemNote／Markdown" loading="lazy" width="500" height="895"><figcaption>匯出 RemNote／MD</figcaption></figure>
+    <figure class="shot"><img src="img/screen_08heatmap.png" alt="學習熱力圖：連續天數與習慣" loading="lazy" width="500" height="895"><figcaption>學習熱力圖</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="trust reveal">
+    <div class="seigaiha"></div>
+    <h2>乾乾淨淨，只為學習</h2>
+    <div class="badges">
+      <span class="b">永久免費</span>
+      <span class="b">無廣告</span>
+      <span class="b">不收集任何資料</span>
+      <span class="b">免註冊</span>
+      <span class="b">資料離線</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap final" id="appstore">
+  <div class="reveal">
+    <div class="eyebrow" style="text-align:center">開始你的日文單字本</div>
+    <h2>今天就記住第一個字。</h2>
+    <p class="lead">免費、無廣告、不用註冊。打開就能學。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">開啟網頁版</a>
+      <a class="btn btn-dark" href="https://apps.apple.com/tw/app/id6784779535" target="_blank" rel="noopener">App Store 免費下載</a>
+    </div>
+    <div class="note">iOS App 審核上架後，此處將換成 App Store 下載連結。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">網頁版</a>
+      <a href="https://qqjasonchen.github.io/tango/privacy.html" target="_blank" rel="noopener">隱私權</a>
+      <a href="https://qqjasonchen.github.io/tango/support.html" target="_blank" rel="noopener">支援</a>
+      <a href="mailto:qqleveragelearning@gmail.com">聯絡我們</a>
+    </div>
+    <div class="cr"><span class="jp">単語ノート</span> · 日文單字 · © 2026 QQ Chen</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    function showAll(){ els.forEach(function(el){ el.classList.add('in'); }); }
+    try{
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+      },{threshold:.08, rootMargin:'0px 0px -5% 0px'});
+      els.forEach(function(el){ io.observe(el); });
+      // 安全網：無論如何 1.2 秒後全部顯示，永不卡在空白
+      setTimeout(showAll, 1200);
+    }catch(e){ showAll(); }
+    // 若使用者偏好減少動態，直接顯示
+    try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) showAll(); }catch(e){}
+  })();
+</script>
+</body>
+</html>
