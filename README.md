@@ -1,17 +1,15 @@
 # 単語ノート landing page
 
-- `index.html` — **目前線上這一版**（2026-07-31）
-- `index-v2.html` — 新版（2026-09-01），還沒切上線
-- `index-v1-backup.html` — 切換前的備份
+- `index.html` — **目前線上這一版**＝v2（2026-09-07 切上線，數字改稽核後 9,238 字／44,945 句解說／N3–N1 37,882 句，加「爆記」段）
+- `index-v2.html` — 與 index.html 相同（母版）
+- `index-v1-backup.html` — 舊深藍版（文字也已更新到 2.1 數字，只是截圖是舊介面）
 
 線上：https://qqjasonchen.github.io/tango-landing/
 新版預覽：https://qqjasonchen.github.io/tango-landing/index-v2.html
 
-## 要切上線就這一步
+## 改版流程
 
-```bash
-cp index-v2.html index.html && git commit -am "landing v2 上線" && git push
-```
+改 `index-v2.html` → `cp index-v2.html index.html` → 只 add 這幾個檔（`.gstack/` 不要進 commit）→ push，GitHub Pages（master:/）約 1 分鐘生效。
 
 ## v2 跟 v1 差在哪
 

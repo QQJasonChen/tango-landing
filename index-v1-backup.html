@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>単語ノート · 日文單字 — JLPT N5–N1 日文背單字 App</title>
-<meta name="description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta name="description" content="為中文母語者打造的日文背單字 App。9,238 個字從五十音到 JLPT N1，44,800 句例句都能聽發音、都有老師講解。免費下載、無廣告、免註冊。">
 <meta name="theme-color" content="#14213d" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%2314213d'/%3E%3Ctext%20x='50'%20y='73'%20font-size='60'%20text-anchor='middle'%20fill='white'%20font-family='sans-serif'%20font-weight='bold'%3E%E5%8D%98%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%2314213d'/%3E%3Ctext%20x='50'%20y='73'%20font-size='60'%20text-anchor='middle'%20fill='white'%20font-family='sans-serif'%20font-weight='bold'%3E%E5%8D%98%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="単語ノート · 日文單字 — JLPT N5–N1 背單字 App">
-<meta property="og:description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta property="og:description" content="為中文母語者打造的日文背單字 App。9,238 個字從五十音到 JLPT N1，44,800 句例句都能聽發音、都有老師講解。免費下載、無廣告、免註冊。">
 <meta property="og:url" content="https://qqjasonchen.github.io/tango-landing/">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://qqjasonchen.github.io/tango-landing/img/og-cover.png">
@@ -19,7 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="単語ノート · 日文單字">
-<meta name="twitter:description" content="為中文母語者打造的日文背單字 App。10,000 字涵蓋 JLPT N5–N1，每句例句都有母語發音與逐句文法解析。免費、離線、無廣告、免註冊。">
+<meta name="twitter:description" content="為中文母語者打造的日文背單字 App。9,238 個字從五十音到 JLPT N1，44,800 句例句都能聽發音、都有老師講解。免費下載、無廣告、免註冊。">
 <meta name="twitter:image" content="https://qqjasonchen.github.io/tango-landing/img/og-cover.png">
 <style>
   :root{
@@ -187,6 +187,11 @@
   .pcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:var(--shadow-sm)}
   .pcard.ai{border-top:4px solid var(--shu)}
   .pcard.spd{border-top:4px solid var(--pos-aux)}
+  .pcard.blast{border-top:4px solid #d97b2b}
+  .pcard.blast .pc-ic{background:rgba(217,123,43,.14)}
+  .blast-steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .blast-steps span{font-size:12.5px;font-weight:700;color:#9a5416;background:rgba(217,123,43,.12);border-radius:99px;padding:5px 11px}
+  .blast-steps span+span::before{content:"→ ";opacity:.5}
   .pc-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
   .pc-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
   .pcard.ai .pc-ic{background:var(--shu-soft)}
@@ -197,7 +202,7 @@
   .spd-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
   .spd-pills span{font-size:14px;font-weight:800;padding:7px 13px;border-radius:99px;background:var(--surface-2);color:var(--muted);font-variant-numeric:tabular-nums}
   .spd-pills span.on{background:var(--pos-aux);color:#fff}
-  @media(min-width:560px){.power{grid-template-columns:1fr 1fr}}
+  @media(min-width:560px){.power{grid-template-columns:1fr 1fr}.pcard.blast{grid-column:1/-1}}
 
   /* ---------- trust ---------- */
   .trust{background:linear-gradient(150deg,var(--hero-a),var(--hero-b) 55%,var(--hero-c));border-radius:var(--radius);padding:26px 22px;color:var(--on-hero);text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
@@ -210,6 +215,7 @@
   .trust>*{position:relative}
   .trust h2{color:#fff;font-size:22px;margin-bottom:14px}
   .trust .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+  .trust .trust-note{margin:14px auto 0;font-size:13.5px;color:rgba(255,255,255,.85);max-width:420px}
   .trust .b{font-size:13px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:99px;color:#fff}
 
   /* ---------- final cta ---------- */
@@ -258,7 +264,7 @@
     <div class="seigaiha"></div>
     <div class="eyebrow">為中文母語者打造</div>
     <h1>看得懂漢字，<br>也<span class="u">唸得出聲</span>。</h1>
-    <p class="h-sub">10,000 個日文單字，從 N5 到 N1。每一句都能調語速發音，還能一鍵 AI 文法解析——像老師在你的筆記本上，一句一句批改。</p>
+    <p class="h-sub">9,238 個日文單字，從五十音到 N1。每一句都能調語速發音，每一句都有老師講解——像在你的筆記本上，一句一句批改。</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">免費開始學 →</a>
       <a class="btn btn-ghost" href="https://apps.apple.com/tw/app/id6784779535" target="_blank" rel="noopener">App Store<span class="tiny">免費下載</span></a>
@@ -266,7 +272,7 @@
 
     <div class="anno">
       <div class="head">
-        <span class="tag">🔍 AI 文法解析</span>
+        <span class="tag">🔍 文法解說</span>
         <span class="lvl n3">N3</span>
       </div>
       <div class="sent">
@@ -288,18 +294,18 @@
 
 <div class="wrap">
   <div class="stats reveal">
-    <div class="stat"><div class="num">10,000</div><div class="lbl">日文單字</div></div>
-    <div class="stat"><div class="num">49,105</div><div class="lbl">句 AI 文法解析</div></div>
+    <div class="stat"><div class="num">9,238</div><div class="lbl">日文單字</div></div>
+    <div class="stat"><div class="num">44,800</div><div class="lbl">句例句發音</div></div>
     <div class="stat"><div class="num">5<span class="unit">種</span></div><div class="lbl">學習模式</div></div>
-    <div class="stat"><div class="num">24<span class="unit">個</span></div><div class="lbl">主題分類</div></div>
+    <div class="stat"><div class="num">27<span class="unit">個</span></div><div class="lbl">主題分類</div></div>
   </div>
 </div>
 
 <section class="wrap">
   <div class="sec-head reveal">
-    <div class="eyebrow">🔍 AI 文法解析</div>
-    <h2>別的 App 給你單字，<br>這裡連文法都 AI 拆好。</h2>
-    <p class="lead">市面上背單字 App 大多只給你「字＋翻譯」。単語ノート 每一句例句點一下「解析」，AI 立刻拆到詞性、句型骨架、關鍵文法點——近 50,000 句全部預先分析好，離線也能看，不用再翻文法書。</p>
+    <div class="eyebrow">🔍 文法解說</div>
+    <h2>別的 App 給你單字，<br>這裡每一句都有老師講解。</h2>
+    <p class="lead">市面上背單字 App 大多只給你「字＋翻譯」。単語ノート 每一句例句點一下「解說」，就拆到詞性、句型骨架、關鍵文法點，還有一段用繁體中文講給你聽的句型解說。五十音、N5、N4 永遠免費；N3～N1 共 37,882 句一次買斷，離線也能看。</p>
   </div>
   <div class="why reveal">
     <div class="legend">
@@ -329,13 +335,18 @@
 
 <section class="wrap">
   <div class="sec-head reveal">
-    <div class="eyebrow">別人沒有的兩件武器</div>
+    <div class="eyebrow">別人沒有的三件武器</div>
     <h2>不只背起來，<br>更真的學得會。</h2>
   </div>
   <div class="power reveal">
+    <div class="pcard blast">
+      <div class="pc-top"><span class="pc-ic">💥</span><h3>爆記：一個字，30 秒</h3></div>
+      <p>卡背按一下：慢速聽、跟著念、聽它在例句裡怎麼用、把例句遮起來、只看中文把假名打出來。不是狂轟濫炸——是逼你自己想起來一次，那一次才會留下來。</p>
+      <div class="blast-steps"><span>聽</span><span>念</span><span>放進例句</span><span>遮住</span><span>自己打出來</span></div>
+    </div>
     <div class="pcard ai">
-      <div class="pc-top"><span class="pc-ic">🔍</span><h3>一鍵 AI 文法解析</h3></div>
-      <p>點一下「解析」，AI 立刻把整句拆給你看——詞性、逐詞拆解、句型骨架，還有一整段像老師講給你聽的「句型解說」：這個助詞為什麼用它、動詞怎麼變、哪裡最容易錯。近 50,000 句全部預先分析好，離線也能用。</p>
+      <div class="pc-top"><span class="pc-ic">🔍</span><h3>每一句都有老師講解</h3></div>
+      <p>點一下「解說」，整句拆給你看——詞性、逐詞拆解、句型骨架，還有一整段像老師講給你聽的「句型解說」：這個助詞為什麼用它、動詞怎麼變、哪裡最容易錯。離線也能用。</p>
       <div class="mini-sent">
         <span class="tok noun">季節</span><span class="tok part">に</span><span class="tok verb">合わせた</span><span class="tok noun">衣類</span><span class="tok part">を</span><span class="tok verb">選ぶ</span>
       </div>
@@ -352,14 +363,14 @@
   <div class="sec-head reveal">
     <div class="eyebrow">循序漸進</div>
     <h2>從 N5 一路到 N1</h2>
-    <p class="lead">10,000 個字全部由 AI 逐字重新校準難度，再經第二輪複審抓錯——不會再出現「明明很簡單卻被標成 N1」。初學者不被進階詞嚇到，考 N1 的人也有足夠深水區。</p>
+    <p class="lead">9,238 個字依詞頻與 JLPT 詞表逐字重新校準難度，再全庫逐字稽核——不會再出現「明明很簡單卻被標成 N1」。初學者不被進階詞嚇到，考 N1 的人也有足夠深水區。</p>
   </div>
   <div class="ladder reveal">
-    <div class="rung l5"><div class="badge">N5</div><div class="bar"><span style="width:16%"></span></div><div class="cnt">633<small> 字</small></div></div>
-    <div class="rung l4"><div class="badge">N4</div><div class="bar"><span style="width:27%"></span></div><div class="cnt">1,059<small> 字</small></div></div>
-    <div class="rung l3"><div class="badge">N3</div><div class="bar"><span style="width:58%"></span></div><div class="cnt">2,225<small> 字</small></div></div>
-    <div class="rung l2"><div class="badge">N2</div><div class="bar"><span style="width:100%"></span></div><div class="cnt">3,852<small> 字</small></div></div>
-    <div class="rung l1"><div class="badge">N1</div><div class="bar"><span style="width:58%"></span></div><div class="cnt">2,231<small> 字</small></div></div>
+    <div class="rung l5"><div class="badge">N5</div><div class="bar"><span style="width:13%"></span></div><div class="cnt">478<small> 字</small></div></div>
+    <div class="rung l4"><div class="badge">N4</div><div class="bar"><span style="width:27%"></span></div><div class="cnt">962<small> 字</small></div></div>
+    <div class="rung l3"><div class="badge">N3</div><div class="bar"><span style="width:58%"></span></div><div class="cnt">2,096<small> 字</small></div></div>
+    <div class="rung l2"><div class="badge">N2</div><div class="bar"><span style="width:100%"></span></div><div class="cnt">3,627<small> 字</small></div></div>
+    <div class="rung l1"><div class="badge">N1</div><div class="bar"><span style="width:55%"></span></div><div class="cnt">1,983<small> 字</small></div></div>
   </div>
 </section>
 
@@ -382,7 +393,7 @@
     <div class="feat reveal">
       <div class="ic">🔊</div>
       <h3>每句發音 · 語速可調</h3>
-      <p>近五萬句例句句句母語發音，還能 0.7×–1.5× 五段語速切換，聽不清就放慢多聽幾次。</p>
+      <p>44,800 句例句句句都有發音，還能 0.7×–1.5× 五段語速切換，聽不清就放慢多聽幾次。</p>
     </div>
     <div class="feat reveal">
       <div class="ic">🔁</div>
@@ -401,8 +412,8 @@
     </div>
     <div class="feat reveal">
       <div class="ic">🔍</div>
-      <h3>AI 文法解析</h3>
-      <p>一鍵拆解詞性、句型與文法點，例句不只會唸，還看得懂為什麼。離線可用。</p>
+      <h3>文法解說</h3>
+      <p>每句拆解詞性、句型與文法點，例句不只會唸，還看得懂為什麼。五十音／N5／N4 免費，離線可用。</p>
     </div>
     <div class="feat reveal">
       <div class="ic">📴</div>
@@ -420,7 +431,7 @@
   </div>
   <div class="shots reveal">
     <figure class="shot"><img src="img/screen_01home.png" alt="首頁：待複習卡片、學習方向、JLPT N5–N1 牌組" loading="lazy" width="500" height="895"><figcaption>首頁 · JLPT 牌組</figcaption></figure>
-    <figure class="shot"><img src="img/screen_02grammar.png" alt="AI 文法解析：逐詞拆解、句型結構、文法重點" loading="lazy" width="500" height="895"><figcaption>AI 文法解析</figcaption></figure>
+    <figure class="shot"><img src="img/screen_02grammar.png" alt="文法解說：逐詞拆解、句型結構、文法重點" loading="lazy" width="500" height="895"><figcaption>文法解說</figcaption></figure>
     <figure class="shot"><img src="img/screen_03card.png" alt="學習卡：例句、發音、連播、語速" loading="lazy" width="500" height="895"><figcaption>例句 · 發音 · 語速</figcaption></figure>
     <figure class="shot"><img src="img/screen_04immersion.png" alt="沉浸模式：隱藏中文，只看日文" loading="lazy" width="500" height="895"><figcaption>隱藏中文沉浸</figcaption></figure>
     <figure class="shot"><img src="img/screen_05search.png" alt="中文一搜字典查詢" loading="lazy" width="500" height="895"><figcaption>中文一搜字典</figcaption></figure>
@@ -435,12 +446,13 @@
     <div class="seigaiha"></div>
     <h2>乾乾淨淨，只為學習</h2>
     <div class="badges">
-      <span class="b">永久免費</span>
+      <span class="b">免費下載</span>
       <span class="b">無廣告</span>
       <span class="b">不收集任何資料</span>
       <span class="b">免註冊</span>
       <span class="b">資料離線</span>
     </div>
+    <p class="trust-note">五十音、N5、N4 的文法解說永遠免費；N3～N1 解說 NT$390 一次買斷，不是訂閱。</p>
   </div>
 </section>
 
@@ -453,7 +465,6 @@
       <a class="btn btn-primary" href="https://qqjasonchen.github.io/tango/" target="_blank" rel="noopener">開啟網頁版</a>
       <a class="btn btn-dark" href="https://apps.apple.com/tw/app/id6784779535" target="_blank" rel="noopener">App Store 免費下載</a>
     </div>
-    <div class="note">iOS App 審核上架後，此處將換成 App Store 下載連結。</div>
   </div>
 </section>
 
